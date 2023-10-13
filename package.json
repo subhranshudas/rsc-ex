@@ -1,0 +1,27 @@
+{
+  "name": "rsc-ex",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/plugin-transform-react-jsx": "^7.21.5",
+    "concurrently": "^7.3.0",
+    "fs-extra": "^11.1.1",
+    "image-size": "^1.0.2",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^2.0.22",
+    "querystring": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.0",
+    "sanitize-filename": "^1.6.3"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start:ssr\" \"npm run start:rsc\"",
+    "start:rsc": "nodemon -- --experimental-loader ./node-jsx-loader.js ./server/rsc.js",
+    "start:ssr": "nodemon -- --experimental-loader ./node-jsx-loader.js ./server/ssr.js"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
+  }
+}
